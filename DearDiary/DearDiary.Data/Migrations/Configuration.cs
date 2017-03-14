@@ -2,7 +2,7 @@ using System.Data.Entity.Migrations;
 
 namespace DearDiary.Data.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<DearDiary.Data.DearDiaryDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<DearDiary.Data.DearDiaryDbContext>
     {
         public Configuration()
         {
