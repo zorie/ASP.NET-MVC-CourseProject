@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DearDiary.Models", "DearDia
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DearDiary.Data", "DearDiary.Data\DearDiary.Data.csproj", "{31B24073-AB91-4D6C-8B75-B28DF3DC088C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DearDiary.UnitTests", "DearDiary.UnitTests\DearDiary.UnitTests.csproj", "{99A7C3FD-1D72-4749-A782-6C2553CDBFBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DearDiary.IntegrationTests", "DearDiary.IntegrationTests\DearDiary.IntegrationTests.csproj", "{AD887370-ADDE-4542-AB34-49F24EB8F942}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{31B24073-AB91-4D6C-8B75-B28DF3DC088C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31B24073-AB91-4D6C-8B75-B28DF3DC088C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31B24073-AB91-4D6C-8B75-B28DF3DC088C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A7C3FD-1D72-4749-A782-6C2553CDBFBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A7C3FD-1D72-4749-A782-6C2553CDBFBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A7C3FD-1D72-4749-A782-6C2553CDBFBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A7C3FD-1D72-4749-A782-6C2553CDBFBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD887370-ADDE-4542-AB34-49F24EB8F942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD887370-ADDE-4542-AB34-49F24EB8F942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD887370-ADDE-4542-AB34-49F24EB8F942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD887370-ADDE-4542-AB34-49F24EB8F942}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
