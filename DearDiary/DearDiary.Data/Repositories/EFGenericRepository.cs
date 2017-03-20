@@ -17,7 +17,7 @@ namespace DearDiary.Data.Repositories
                 throw new ArgumentNullException("Database context cannot be null.");
             }
 
-            this.dbContext = new DearDiaryDbContext();
+            this.dbContext = dbContext;
             this.dbSet = this.dbContext.Set<T>();
         }
 

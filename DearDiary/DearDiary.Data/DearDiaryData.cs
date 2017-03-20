@@ -41,7 +41,7 @@ namespace DearDiary.Data
                 throw new ArgumentNullException("AimCategories entity framework repository cannot be null.");
             }
 
-            if (cities == null)
+            if (citiesRepo == null)
             {
                 throw new ArgumentNullException("Cities entity framework repository cannot be null.");
             }
