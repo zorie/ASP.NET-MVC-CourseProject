@@ -24,7 +24,6 @@ body {
   z-index: -1; 
 }
 .navbar-inverse{
-    /*background-color: #855FA9;*/
     background-color:#289486;
     opacity: 0.9;    
 }
