@@ -200,7 +200,10 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AutoMapping\IMapperAdapter.cs" />
+    <Compile Include="AutoMapping\MapperAdapter.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AimController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -211,6 +214,7 @@
     <Compile Include="Identity\EmailService.cs" />
     <Compile Include="Identity\SmsService.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CreateAimViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -219,6 +223,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\deardiarylogo.png" />
     <Content Include="Content\dreambackground.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -275,6 +280,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Aim\CreateAim.cshtml" />
+    <Content Include="Views\Aim\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -295,6 +302,10 @@
     <ProjectReference Include="..\DearDiary.Models\DearDiary.Models.csproj">
       <Project>{F287FDE1-0706-4148-9B21-BBF9031D878F}</Project>
       <Name>DearDiary.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DearDiary.Services\DearDiary.Services.csproj">
+      <Project>{FE1E1400-0F85-4765-929E-0FD7536C95B8}</Project>
+      <Name>DearDiary.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

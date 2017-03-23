@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DearDiary.Models
@@ -17,21 +16,21 @@ namespace DearDiary.Models
 
         [Key]
         [Required]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
 
-        // TODO: enum?
+        // TODO: enum or static class?
         [Required]
-        public string Type { get; set; }
+        public string Status { get; set; }
 
-        public Guid AimCategoryId { get; set; }
+        public int? AimCategoryId { get; set; }
         public virtual AimCategory AimCategory { get; set; }
 
         public string Description { get; set; }
 
-        public Guid CityId { get; set; }
+        public int? CityId { get; set; }
         public virtual City City { get; set; }
 
         public virtual ICollection<User> InUsersBucketList
@@ -47,5 +46,7 @@ namespace DearDiary.Models
         }
 
         // TODO: Do I need a country in here?
+        public int? CountryId { get; set; }
+        public virtual Country Country { get; set; }
     }
 }

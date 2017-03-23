@@ -16,7 +16,7 @@ namespace DearDiary.Models
 
         [Key]
         [Required]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Index(IsUnique = true)]
@@ -30,7 +30,7 @@ namespace DearDiary.Models
             set { this.aims = value; }
         }
 
-        public Guid CountryId { get; set; }
+        public int? CountryId { get; set; }
         public virtual Country Country { get; set; }
     }
 }

@@ -8,15 +8,17 @@ namespace DearDiary.Models
     public class Country
     {
         private ICollection<City> cities;
+        private ICollection<Aim> aims;
 
         public Country()
         {
             this.cities = new HashSet<City>();
+            this.aims = new HashSet<Aim>();
         }
 
         [Key]
         [Required]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Index(IsUnique = true)]
@@ -28,6 +30,12 @@ namespace DearDiary.Models
         {
             get { return this.cities; }
             set { this.cities = value; }
+        }
+
+        public virtual ICollection<Aim> Aims
+        {
+            get { return this.aims; }
+            set { this.aims = value; }
         }
     }
 }

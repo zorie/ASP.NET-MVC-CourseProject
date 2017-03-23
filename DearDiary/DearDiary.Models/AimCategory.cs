@@ -15,7 +15,7 @@ namespace DearDiary.Models
 
         [Key]
         [Required]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Index(IsUnique = true)]
