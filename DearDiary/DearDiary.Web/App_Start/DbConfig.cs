@@ -8,7 +8,7 @@ namespace DearDiary.Web.App_Start
     {
         public static void Initialize()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DearDiaryDbContext, Configuration>());
+            Database.SetInitializer<DearDiaryDbContext>(null);
             DearDiaryDbContext.Create().Database.Initialize(true);
         }
     }
