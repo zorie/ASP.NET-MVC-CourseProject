@@ -8,7 +8,7 @@ namespace DearDiary.Data
     public class DearDiaryDbContext : IdentityDbContext<User>, IDearDiaryDbContext
     {
         public DearDiaryDbContext() 
-            : base("DearDiary")
+            : base("DearDiaryTestDB")
         {
         }
 

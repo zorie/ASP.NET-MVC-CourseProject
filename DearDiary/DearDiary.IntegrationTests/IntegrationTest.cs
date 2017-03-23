@@ -10,7 +10,8 @@ namespace DearDiary.IntegrationTests
         [Test]
         public void IntegrationTestMethod()
         {
-            // this should not be the context - it connects to the real db?
+            // these tests run again testing db, not the real one
+            // since the real one has changes - dbcontext has changes, but the testing db is the old one -> leading to a problem
             // Arrange
             DearDiaryDbContext dbContext = new DearDiaryDbContext();
 
@@ -18,7 +19,7 @@ namespace DearDiary.IntegrationTests
             int aimsCount = dbContext.Aims.Count();           
 
             // Assert
-            Assert.AreEqual(0, 0);
+            Assert.AreEqual(0, aimsCount);
         }
     }
 }
