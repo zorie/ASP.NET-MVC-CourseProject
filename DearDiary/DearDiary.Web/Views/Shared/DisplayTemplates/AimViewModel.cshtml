@@ -1,0 +1,17 @@
+﻿@model  DearDiary.Web.Models.AimViewModel
+
+@{
+    ViewBag.Title = "AimViewModel";
+}
+
+<div>
+    <a href="~/aim/@Model.Id">
+        <img src="@Url.Content($"~/Images/{Model.Photo}")" class="img-responsive text-center" alt="@Model.Name">
+    </a>
+</div>
+<div>
+    <h3><a href="~/aim/@Model.Id">@Model.Name</a></h3>
+    <div>@Model.OwnerUsername</div>
+</div>
+
+
