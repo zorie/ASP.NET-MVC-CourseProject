@@ -2,6 +2,8 @@
 using DearDiary.Web.AutoMapping;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
 using System.Web.Mvc;
 
 namespace DearDiary.Web.Models
@@ -29,6 +31,14 @@ namespace DearDiary.Web.Models
         [Display(Name = "Country")]
         public int CountryId { get; set; }
         public IEnumerable<SelectListItem> Countries { get; set; }
+
+        //[Required]
+        [Display(Name = "Photo")]
+        [NotMapped]
+        public HttpPostedFileBase Photo { get; set; }
+        
+        [Display(Name = "Owner username")]
+        public string OwnerUsername { get; set; }
 
         //[Required]
         //[Display(Name = "Category")]

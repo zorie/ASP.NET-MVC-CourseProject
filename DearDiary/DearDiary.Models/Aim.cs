@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DearDiary.Models
@@ -24,6 +25,11 @@ namespace DearDiary.Models
         // TODO: enum or static class?
         [Required]
         public string Status { get; set; }
+
+        public string OwnerUsername { get; set; }
+            
+        //[Required]
+        public string Photo { get; set; }
 
         public int? AimCategoryId { get; set; }
         public virtual AimCategory AimCategory { get; set; }

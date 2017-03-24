@@ -204,6 +204,7 @@
     <Compile Include="AutoMapping\MapperAdapter.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AimController.cs" />
+    <Compile Include="Controllers\ExploreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,7 +215,13 @@
     <Compile Include="Identity\EmailService.cs" />
     <Compile Include="Identity\SmsService.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AimDetailsViewModel.cs" />
+    <Compile Include="Models\AimsViewModel.cs" />
+    <Compile Include="Models\AimViewModel.cs" />
     <Compile Include="Models\CreateAimViewModel.cs" />
+    <Compile Include="Models\ExploreResultsViewModel.cs" />
+    <Compile Include="Models\ExploreSubmitViewModel.cs" />
+    <Compile Include="Models\ExploreViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,6 +236,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\happiness.jpg" />
+    <Content Include="Images\love.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\DearDiary.pubxml" />
@@ -282,6 +291,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Aim\CreateAim.cshtml" />
     <Content Include="Views\Aim\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminPartial.cshtml" />
+    <Content Include="Views\Explore\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AimViewModel.cshtml" />
+    <Content Include="Views\Explore\_ExploreResultsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

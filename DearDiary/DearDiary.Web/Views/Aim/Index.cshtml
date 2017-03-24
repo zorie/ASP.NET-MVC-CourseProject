@@ -1,12 +1,22 @@
-﻿@model IEnumerable<DearDiary.Web.Models.CreateAimViewModel>
+﻿@using DearDiary.Models
+
+@model DearDiary.Web.Models.AimsViewModel
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Latest aims</h2>
+
+@foreach (var item in Model.Aims)
+{
+    <div>@item.Name</div>
+    <div>@item.OwnerUsername</div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="@Url.Content($"{item.Photo}")" alt="@item.Name" />
+    </div>
+}
 
 <p>
     @Html.ActionLink("Create New", "CreateAim")
 </p>
-<h3>Successfully added</h3>

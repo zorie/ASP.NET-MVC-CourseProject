@@ -28,5 +28,13 @@ namespace DearDiary.Services
             this.data.Aims.Add(aim);
             this.data.SaveChanges();
         }
+
+        // TODO: consider lazy loading ?
+        public IEnumerable<Aim> GetAims(int count)
+        {
+            var aims = this.data.Aims.All.Take(count).ToList();
+
+            return aims;
+        }
     }
 }
