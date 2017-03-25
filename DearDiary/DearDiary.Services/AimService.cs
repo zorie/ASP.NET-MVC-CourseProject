@@ -67,11 +67,11 @@ namespace DearDiary.Services
         private IQueryable<Aim> FilterQuery(string searchWord, IEnumerable<int> categoriesIds)
         {
             var aims = this.data.Aims.All;
-            searchWord = searchWord.ToLower();
 
             if (searchWord != null)
             {
-                aims= aims.Where(x => x.Name.ToLower().Contains(searchWord) || x.OwnerUsername.ToLower().Contains(searchWord));
+                searchWord = searchWord.ToLower();
+                aims = aims.Where(x => x.Name.ToLower().Contains(searchWord) || x.OwnerUsername.ToLower().Contains(searchWord));
             }
 
             if (categoriesIds != null && categoriesIds.Any())

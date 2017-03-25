@@ -61,11 +61,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AimCategoryServiceTests\Constructor_Should.cs" />
     <Compile Include="AimServiceTests\AddAim_Should.cs" />
     <Compile Include="AimServiceTests\Constructor_Should.cs" />
     <Compile Include="AimServiceTests\ExploreAims_Should.cs" />
     <Compile Include="AimServiceTests\GetAimById_Should.cs" />
     <Compile Include="AimServiceTests\GetAimsCount_Should.cs" />
+    <Compile Include="CityServiceTests\Constructor_Should.cs" />
+    <Compile Include="CountryServiceTests\Constructor_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
