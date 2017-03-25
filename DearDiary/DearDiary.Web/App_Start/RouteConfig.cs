@@ -13,6 +13,14 @@ namespace DearDiary.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.LowercaseUrls = true;
+
+            routes.MapRoute(
+                name: "CreateAim",
+                url: "Aim/Create",
+                defaults: new { controller = "Aim", action = "Create" }
+            );
+
             routes.MapRoute(
                 name: "Aim",
                 url: "Aim/{id}",

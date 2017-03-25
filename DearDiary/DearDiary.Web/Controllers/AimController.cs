@@ -75,7 +75,7 @@ namespace DearDiary.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult CreateAim()
+        public ActionResult Create()
         {
             var model = new CreateAimViewModel();
 
@@ -87,7 +87,7 @@ namespace DearDiary.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateAim(CreateAimViewModel aimModel, FormCollection form)
+        public ActionResult Create(CreateAimViewModel aimModel, FormCollection form)
         {
             if (!this.IsImage(aimModel.Photo))
             {
