@@ -27,7 +27,7 @@
             <ul class="inline-list">
                 <li>Sort : </li>
                 <li>
-                    <input id="sort1" type="radio" name="SortBy" value="name" class="display-none submit-on-checked">
+                    <input id="sort1" type="radio" name="SortBy" value="name" class="display-none is-checked">
                     <label for="sort1" class="cursor-pointer">Name</label>
                 </li>
                 <div class="clear"></div>
@@ -38,30 +38,16 @@
                     <section>
                         <h4>Categories</h4>
                         <div class="row1">
-                            @*@foreach (var genre in Model.Genres)
+                            @foreach (var category in Model.AimCategories)
                             {
                                 <div class="checkbox-new">
                                     <label>
-                                        <input type="checkbox" class="submit-on-checked" name="ChosenGenresIds" value="@genre.Id">
+                                        <input type="checkbox" class="is-checked" name="ChosenCategoriesIds" value="@category.Id">
                                         <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                        @genre.Name
+                                        @category.Name
                                     </label>
                                 </div>
-                            }*@
-                            <div class="checkbox-new">
-                                <label>
-                                    <input type="checkbox" name="genre" value="">
-                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                    Option
-                                </label>
-                            </div>
-                            <div class="checkbox-new">
-                                <label>
-                                    <input type="checkbox" name="genre" value="">
-                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                    Option
-                                </label>
-                            </div>
+                            }                            
                         </div>
                     </section>
                 </div>
@@ -76,5 +62,5 @@
 @section scripts{
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
-    @Scripts.Render("~/Scripts/explore-submit.js")
+    @Scripts.Render("~/Scripts/CustomScripts/explore.js")
 }

@@ -24,15 +24,17 @@ namespace DearDiary.Web.Models
         [Display(Name = "Status")]
         public string Status { get; set; }
 
+        [Required]
         [Display(Name = "City")]
         public int CityId { get; set; }
         public IEnumerable<SelectListItem> Cities { get; set; }
 
+        [Required]
         [Display(Name = "Country")]
         public int CountryId { get; set; }
         public IEnumerable<SelectListItem> Countries { get; set; }
 
-        //[Required]
+        [Required]
         [Display(Name = "Photo")]
         [NotMapped]
         public HttpPostedFileBase Photo { get; set; }
@@ -40,8 +42,9 @@ namespace DearDiary.Web.Models
         [Display(Name = "Owner username")]
         public string OwnerUsername { get; set; }
 
-        //[Required]
-        //[Display(Name = "Category")]
-        //public string AimCategory { get; set; }
+        [Required]
+        [Display(Name = "Category")]
+        public int AimCategoryId { get; set; }
+        public IEnumerable<SelectListItem> AimCategories { get; set; }
     }
 }

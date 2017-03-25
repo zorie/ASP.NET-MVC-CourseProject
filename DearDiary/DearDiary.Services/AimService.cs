@@ -4,8 +4,6 @@ using DearDiary.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DearDiary.Services
 {
@@ -29,10 +27,51 @@ namespace DearDiary.Services
             this.data.SaveChanges();
         }
 
+        public IEnumerable<Aim> ExploreAims(string searchWord, IEnumerable<int> categoriesIds, string sortBy, int page = 1, int aimsPerPage = 5)
+        {
+            var getAimsFrom = (page - 1) * aimsPerPage;
+
+            var aims = this.FilterQuery(searchWord, categoriesIds);
+
+            sortBy = sortBy == null ? string.Empty : sortBy.ToLower();
+            switch (sortBy)
+            {
+                case "name": aims = aims.OrderBy(x => x.Name); break;
+                default: aims = aims.OrderBy(x => x.Name); break;
+            }
+
+            var result = aims.Skip(getAimsFrom).Take(aimsPerPage).ToList();
+
+            return result;
+        }
+
         // TODO: consider lazy loading ?
         public IEnumerable<Aim> GetAims(int count)
         {
             var aims = this.data.Aims.All.Take(count).ToList();
+
+            return aims;
+        }
+
+        public int GetAimsCount(string searchWord, IEnumerable<int> categoriesIds)
+        {
+            var aims = this.FilterQuery(searchWord, categoriesIds);
+            return aims.Count();
+        }
+
+        private IQueryable<Aim> FilterQuery(string searchWord, IEnumerable<int> categoriesIds)
+        {
+            var aims = this.data.Aims.All;
+
+            if (searchWord != null)
+            {
+                aims= aims.Where(x => x.Name.Contains(searchWord) || x.OwnerUsername.Contains(searchWord));
+            }
+
+            if (categoriesIds != null && categoriesIds.Any())
+            {
+                aims = aims.Where(x => categoriesIds.Contains(x.AimCategoryId));
+            }
 
             return aims;
         }

@@ -31,7 +31,7 @@ namespace DearDiary.Models
         //[Required]
         public string Photo { get; set; }
 
-        public int? AimCategoryId { get; set; }
+        public int AimCategoryId { get; set; }
         public virtual AimCategory AimCategory { get; set; }
 
         public string Description { get; set; }

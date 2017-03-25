@@ -13,13 +13,20 @@ namespace DearDiary.Web.Controllers
         private const int CountOfAims = 5;
 
         private readonly IAimService aimService;
+        private readonly IAimCategoryService aimCategoryService;
         private readonly IMapperAdapter mapper;
-        public ExploreController(IAimService aimService, IMapperAdapter mapper)
+        public ExploreController(IAimService aimService, IAimCategoryService categoryService, IMapperAdapter mapper)
         {
             if (aimService == null)
             {
                 throw new ArgumentNullException("Aim Service cannot be null");
             }
+
+            if (categoryService == null)
+            {
+                throw new ArgumentNullException("Category Service cannot be null");
+            }
+
             if (mapper == null)
             {
                 throw new ArgumentNullException("Mapper cannot be null");
@@ -27,39 +34,32 @@ namespace DearDiary.Web.Controllers
 
             this.aimService = aimService;
             this.mapper = mapper;
+            this.aimCategoryService = categoryService;
         }
 
         // GET: Explore
         public ActionResult Index()
         {
-            var aims = this.aimService.GetAims(CountOfAims);
+            ExploreViewModel model = new ExploreViewModel();
 
-            var latestAims = new List<AimViewModel>(aims.Count());
+            var categories = this.aimCategoryService.GetAimCategories();
+            model.AimCategories = mapper.Map<IEnumerable<AimCategoryViewModel>>(categories);
 
-            foreach (var aim in aims)
-            {
-                var a = this.mapper.Map<AimViewModel>(aim);
-                latestAims.Add(a);
-            }
-
-            ExploreViewModel model = new ExploreViewModel { Aims = latestAims };
             return View(model);            
         }
-
+        
         public PartialViewResult ExploreAims(ExploreSubmitViewModel submitModel, int? page)
         {
             int actualPage = page ?? 1;
 
-            //var result = this.aimService.SearchBooks(submitModel.SearchWord, submitModel.ChosenCategoriesIds, submitModel.SortBy, actualPage, Constants.BooksPerPage);
-            //var count = this.aimService.GetBooksCount(submitModel.SearchWord, submitModel.ChosenGenresIds);
-            var result = this.aimService.GetAims(5);
+            var result = this.aimService.ExploreAims(submitModel.SearchWord, submitModel.ChosenCategoriesIds, submitModel.SortBy, actualPage, 5);
+            var count = this.aimService.GetAimsCount(submitModel.SearchWord, submitModel.ChosenCategoriesIds);
             var resultViewModel = new ExploreResultsViewModel();
             resultViewModel.SubmitModel = submitModel;
-            //resultViewModel.Pages = (int)Math.Ceiling((double)count / Constants.BooksPerPage);
-            resultViewModel.Pages = 1;
+            resultViewModel.Pages = (int)Math.Ceiling((double)count / 5.0);
 
             resultViewModel.Aims = mapper.Map<IEnumerable<AimViewModel>>(result);
-
+            
             return this.PartialView("_ExploreResultsPartial", resultViewModel);
         }
     }

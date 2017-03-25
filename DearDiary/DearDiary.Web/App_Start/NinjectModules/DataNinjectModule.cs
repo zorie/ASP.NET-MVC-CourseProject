@@ -18,6 +18,7 @@ namespace DearDiary.Web.App_Start.NinjectModules
             this.Bind<IAimService>().To<AimService>().InRequestScope();
             this.Bind<ICountryService>().To<CountryService>().InRequestScope();
             this.Bind<ICityService>().To<CityService>().InRequestScope();
+            this.Bind<IAimCategoryService>().To<AimCategoryService>().InRequestScope();
             this.Bind<IMapperAdapter>().To<MapperAdapter>().InRequestScope();
         }
     }

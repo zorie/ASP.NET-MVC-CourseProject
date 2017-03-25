@@ -4,7 +4,6 @@ using DearDiary.Web.AutoMapping;
 using DearDiary.Web.Models;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,15 +13,18 @@ namespace DearDiary.Web.Controllers
     public class AimController : Controller
     {
         private readonly IAimService aimService;
-        private readonly IMapperAdapter mapper;
         private readonly ICityService cityService;
+        private readonly IAimCategoryService aimCategoryService;
         private readonly ICountryService countryService;
+        private readonly IMapperAdapter mapper;
+
         private const int CountOfAims = 5;
 
         public AimController(
             IAimService aimService,
             ICountryService countrySerice,
             ICityService cityService,
+            IAimCategoryService aimCategoryService,
             IMapperAdapter mapper)
         {
             if(aimService == null)
@@ -40,6 +42,11 @@ namespace DearDiary.Web.Controllers
                 throw new ArgumentNullException("City Service cannot be null");
             }
 
+            if (aimCategoryService == null)
+            {
+                throw new ArgumentNullException("Category Service cannot be null");
+            }
+
             if (mapper == null)
             {
                 throw new ArgumentNullException("Mapper cannot be null");
@@ -48,25 +55,12 @@ namespace DearDiary.Web.Controllers
             this.aimService = aimService;
             this.cityService = cityService;
             this.countryService = countrySerice;
+            this.aimCategoryService = aimCategoryService;
             this.mapper = mapper;
         }
         // GET: Aims
         public ActionResult Index()
         {
-            // list all latest aims = 5
-
-            //var aims = this.aimService.GetAims(CountOfAims);
-
-            //var latestAims = new List<AimViewModel>(aims.Count());
-
-            //foreach (var aim in aims)
-            //{
-            //    var a = this.mapper.Map<AimViewModel>(aim);
-            //    latestAims.Add(a);
-            //}
-
-            ////ViewBag.LatestAims = latestAims;
-            //AimsViewModel model = new AimsViewModel { Aims = latestAims };
             return View();
         }
 
@@ -76,6 +70,7 @@ namespace DearDiary.Web.Controllers
             var model = new CreateAimViewModel();
 
             ViewData["country"] = GetCountries();
+            ViewData["category"] = GetCategories();
 
             return this.View(model);
         }
@@ -88,11 +83,13 @@ namespace DearDiary.Web.Controllers
             {
                 //this.ModelState.AddModelError("CoverFile", "Photo should be an image file.");
                 ViewData["country"] = GetCountries();
+                ViewData["category"] = GetCategories();
                 return View();
             }
 
             int countryId = int.Parse(form["Country"].ToString());
-            int cityId = int.Parse(form["city"].ToString());
+            int cityId = int.Parse(form["City"].ToString());
+            int categoryId = int.Parse(form["category"].ToString());
 
             if (ModelState.IsValid)
             {
@@ -113,6 +110,7 @@ namespace DearDiary.Web.Controllers
 
                 newAim.CountryId = countryId;
                 newAim.CityId = cityId;
+                newAim.AimCategoryId = categoryId;
                 newAim.OwnerUsername = this.User.Identity.Name;
                 newAim.Photo = fileName;
 
@@ -124,6 +122,7 @@ namespace DearDiary.Web.Controllers
             else
             {
                 ViewData["country"] = GetCountries();
+                ViewData["category"] = GetCategories();
                 return View(aimModel);
             }            
         }
@@ -159,7 +158,7 @@ namespace DearDiary.Web.Controllers
 
         private IEnumerable<SelectListItem> GetCities()
         {
-            var c = cityService.GetAllCities().Select(x =>
+            var c = this.cityService.GetAllCities().Select(x =>
                new SelectListItem
                {
                    Value = x.Id.ToString(),
@@ -171,7 +170,7 @@ namespace DearDiary.Web.Controllers
 
         private IEnumerable<SelectListItem> GetCountries()
         {
-            var c = countryService.GetAllCountries().Select(x =>
+            var c = this.countryService.GetAllCountries().Select(x =>
                new SelectListItem
                {
                    Value = x.Id.ToString(),
@@ -179,6 +178,18 @@ namespace DearDiary.Web.Controllers
                });
 
             return new SelectList(c, "Value", "Text");
-        }    
+        }
+
+        private IEnumerable<SelectListItem> GetCategories()
+        {
+            var c = this.aimCategoryService.GetAimCategories().Select(x =>
+               new SelectListItem
+               {
+                   Value = x.Id.ToString(),
+                   Text = x.Name
+               });
+
+            return new SelectList(c, "Value", "Text");
+        }
     }
 }

@@ -1,22 +1,7 @@
-﻿@using DearDiary.Models
-
-@model DearDiary.Web.Models.AimsViewModel
+﻿@model DearDiary.Web.Models.AimDetailsViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Aim";
 }
 
-<h2>Latest aims</h2>
-
-@foreach (var item in Model.Aims)
-{
-    <div>@item.Name</div>
-    <div>@item.OwnerUsername</div>
-    <div class="col-md-3">
-        <img class="img-responsive" src="@Url.Content($"{item.Photo}")" alt="@item.Name" />
-    </div>
-}
-
-<p>
-    @Html.ActionLink("Create New", "CreateAim")
-</p>
+<h2>Aim details</h2>
