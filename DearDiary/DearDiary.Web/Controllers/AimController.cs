@@ -58,11 +58,30 @@ namespace DearDiary.Web.Controllers
             this.aimCategoryService = aimCategoryService;
             this.mapper = mapper;
         }
-        
-        // GET: Aims
-        public ActionResult Index(int id)
+
+        public ActionResult Index()
         {
-            Aim aim = this.aimService.GetAimById(id);
+            return this.RedirectToRoute(new
+            {
+                controller = "Explore",
+                action = "Index"
+            });
+        }
+
+        // GET: Aim
+        public ActionResult Details(string id)
+        {
+            if(id == null)
+            {
+                return RedirectToRoute(new
+                {
+                    controller = "Explore",
+                    action = "Index"
+                });
+            }
+
+            int aimId = int.Parse(id);
+            Aim aim = this.aimService.GetAimById(aimId);
 
             if (aim == null)
             {
@@ -97,7 +116,7 @@ namespace DearDiary.Web.Controllers
             }
 
             int countryId = int.Parse(form["Country"].ToString());
-            int cityId = int.Parse(form["City"].ToString());
+            int cityId = int.Parse(form["city"].ToString());
             int categoryId = int.Parse(form["category"].ToString());
 
             if (ModelState.IsValid)
@@ -124,9 +143,12 @@ namespace DearDiary.Web.Controllers
                 newAim.Photo = fileName;
 
                 aimService.AddAim(newAim);
-
-                // $"/aim/{aim.Id}"
-                return Redirect("Index");
+                
+                return RedirectToRoute(new
+                {
+                    controller = "Explore",
+                    action = "Index"
+                });
             }
             else
             {

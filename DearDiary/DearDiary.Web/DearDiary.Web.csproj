@@ -294,7 +294,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Aim\Create.cshtml" />
-    <Content Include="Views\Aim\Index.cshtml" />
+    <Content Include="Views\Aim\Details.cshtml" />
     <Content Include="Views\Shared\_AdminPartial.cshtml" />
     <Content Include="Views\Explore\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\AimViewModel.cshtml" />
