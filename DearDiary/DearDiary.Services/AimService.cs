@@ -3,6 +3,7 @@ using DearDiary.Models;
 using DearDiary.Services.Contracts;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace DearDiary.Services
@@ -29,10 +30,13 @@ namespace DearDiary.Services
 
         public Aim GetAimById(int id)
         {
-            // TODO: debug
-            Aim aim = this.data.Aims.GetById(id);
-
-            return aim;
+            Aim aim = this.data.Aims
+                .All
+                .Where(x => x.Id == id)
+                .Include(x => x.City)
+                .Include(x => x.Country)
+                .FirstOrDefault();
+            return aim;            
         }
 
         public IEnumerable<Aim> ExploreAims(string searchWord, IEnumerable<int> categoriesIds, string sortBy, int page = 1, int aimsPerPage = 5)
@@ -45,20 +49,13 @@ namespace DearDiary.Services
             switch (sortBy)
             {
                 case "name": aims = aims.OrderBy(x => x.Name); break;
+                case "ownerusername": aims = aims.OrderBy(x => x.OwnerUsername); break;
                 default: aims = aims.OrderBy(x => x.Name); break;
             }
 
             var result = aims.Skip(getAimsFrom).Take(aimsPerPage).ToList();
 
             return result;
-        }
-
-        // TODO: consider lazy loading ?
-        public IEnumerable<Aim> GetAims(int count)
-        {
-            var aims = this.data.Aims.All.Take(count).ToList();
-
-            return aims;
         }
 
         public int GetAimsCount(string searchWord, IEnumerable<int> categoriesIds)
@@ -70,10 +67,11 @@ namespace DearDiary.Services
         private IQueryable<Aim> FilterQuery(string searchWord, IEnumerable<int> categoriesIds)
         {
             var aims = this.data.Aims.All;
+            searchWord = searchWord.ToLower();
 
             if (searchWord != null)
             {
-                aims= aims.Where(x => x.Name.Contains(searchWord) || x.OwnerUsername.Contains(searchWord));
+                aims= aims.Where(x => x.Name.ToLower().Contains(searchWord) || x.OwnerUsername.ToLower().Contains(searchWord));
             }
 
             if (categoriesIds != null && categoriesIds.Any())

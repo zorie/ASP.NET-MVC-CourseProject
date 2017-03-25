@@ -21,12 +21,12 @@ namespace DearDiary.Services
             this.data = data;
         }
 
-        public List<City> GetAllCities()
+        public IEnumerable<City> GetAllCities()
         {
             return this.data.Cities.All.ToList();
         }
 
-        public List<City> GetAllCitiesByCountry(string countryId)
+        public IEnumerable<City> GetAllCitiesByCountry(string countryId)
         {
             int countryID = int.Parse(countryId);
             return this.data.Cities.All.Where(x => x.CountryId == countryID).ToList();

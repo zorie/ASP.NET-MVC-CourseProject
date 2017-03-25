@@ -21,7 +21,7 @@ namespace DearDiary.Services
             this.data = data;
         }
 
-        public List<Country> GetAllCountries()
+        public IEnumerable<Country> GetAllCountries()
         {
             return this.data.Countries.All.ToList();
         }

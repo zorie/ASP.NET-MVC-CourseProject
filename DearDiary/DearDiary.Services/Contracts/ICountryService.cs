@@ -5,6 +5,6 @@ namespace DearDiary.Services.Contracts
 {
     public interface ICountryService
     {
-        List<Country> GetAllCountries();
+        IEnumerable<Country> GetAllCountries();
     }
 }
