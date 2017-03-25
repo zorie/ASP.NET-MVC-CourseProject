@@ -58,10 +58,20 @@ namespace DearDiary.Web.Controllers
             this.aimCategoryService = aimCategoryService;
             this.mapper = mapper;
         }
+        
         // GET: Aims
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View();
+            Aim aim = this.aimService.GetAimById(id);
+
+            if (aim == null)
+            {
+                return this.View("Error");
+            }
+
+            AimDetailsViewModel model = this.mapper.Map<AimDetailsViewModel>(aim);
+
+            return this.View(model);
         }
 
         [HttpGet]
@@ -81,7 +91,6 @@ namespace DearDiary.Web.Controllers
         {
             if (!this.IsImage(aimModel.Photo))
             {
-                //this.ModelState.AddModelError("CoverFile", "Photo should be an image file.");
                 ViewData["country"] = GetCountries();
                 ViewData["category"] = GetCategories();
                 return View();

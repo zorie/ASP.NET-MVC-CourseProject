@@ -27,6 +27,14 @@ namespace DearDiary.Services
             this.data.SaveChanges();
         }
 
+        public Aim GetAimById(int id)
+        {
+            // TODO: debug
+            Aim aim = this.data.Aims.GetById(id);
+
+            return aim;
+        }
+
         public IEnumerable<Aim> ExploreAims(string searchWord, IEnumerable<int> categoriesIds, string sortBy, int page = 1, int aimsPerPage = 5)
         {
             var getAimsFrom = (page - 1) * aimsPerPage;

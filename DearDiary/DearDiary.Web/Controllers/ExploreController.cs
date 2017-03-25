@@ -3,7 +3,6 @@ using DearDiary.Web.AutoMapping;
 using DearDiary.Web.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 
 namespace DearDiary.Web.Controllers
@@ -52,7 +51,7 @@ namespace DearDiary.Web.Controllers
         {
             int actualPage = page ?? 1;
 
-            var result = this.aimService.ExploreAims(submitModel.SearchWord, submitModel.ChosenCategoriesIds, submitModel.SortBy, actualPage, 5);
+            var result = this.aimService.ExploreAims(submitModel.SearchWord, submitModel.ChosenCategoriesIds, submitModel.SortBy, actualPage, CountOfAims);
             var count = this.aimService.GetAimsCount(submitModel.SearchWord, submitModel.ChosenCategoriesIds);
             var resultViewModel = new ExploreResultsViewModel();
             resultViewModel.SubmitModel = submitModel;

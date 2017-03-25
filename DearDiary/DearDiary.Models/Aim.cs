@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DearDiary.Models
@@ -27,8 +26,8 @@ namespace DearDiary.Models
         public string Status { get; set; }
 
         public string OwnerUsername { get; set; }
-            
-        //[Required]
+
+        [Required]
         public string Photo { get; set; }
 
         public int AimCategoryId { get; set; }
