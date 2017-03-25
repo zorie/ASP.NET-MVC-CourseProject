@@ -25,18 +25,6 @@ namespace DearDiary.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-            //context.AimCategories.AddOrUpdate(
-            //        new AimCategory {Id=3, Name="TestCategory" }
-            //    );
-
-            //context.Cities.AddOrUpdate(
-            //        new City { Id = 3, Name = "CityTest" }
-            //    );
-
-            //context.Aims.AddOrUpdate(
-            //    new Aim { Name="test", Type="type", AimCategoryId=3, CityId=3}
-            //    );
         }
     }
 }

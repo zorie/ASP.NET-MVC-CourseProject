@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DearDiary.Data.Tests", "Dea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DearDiary.Services", "DearDiary.Services\DearDiary.Services.csproj", "{FE1E1400-0F85-4765-929E-0FD7536C95B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DearDiary.Models.Tests", "DearDiary.Models.Tests\DearDiary.Models.Tests.csproj", "{26A81464-BFE6-4FB6-95AF-E98D8B74FE15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,11 +49,16 @@ Global
 		{FE1E1400-0F85-4765-929E-0FD7536C95B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE1E1400-0F85-4765-929E-0FD7536C95B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE1E1400-0F85-4765-929E-0FD7536C95B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26A81464-BFE6-4FB6-95AF-E98D8B74FE15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26A81464-BFE6-4FB6-95AF-E98D8B74FE15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26A81464-BFE6-4FB6-95AF-E98D8B74FE15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26A81464-BFE6-4FB6-95AF-E98D8B74FE15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1DC92C0E-F4E7-4777-A71C-C50CA1B7CC8E} = {3960BD1A-3DCB-4305-9FB9-55DEA12F8AE2}
+		{26A81464-BFE6-4FB6-95AF-E98D8B74FE15} = {3960BD1A-3DCB-4305-9FB9-55DEA12F8AE2}
 	EndGlobalSection
 EndGlobal

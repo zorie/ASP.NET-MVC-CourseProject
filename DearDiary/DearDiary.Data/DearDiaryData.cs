@@ -88,8 +88,5 @@ namespace DearDiary.Data
         {
             return this.dbContext.SaveChanges();
         }
-        public void Dispose()
-        {            
-        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,7 +6,6 @@ namespace DearDiary.Models
 {
     public class City
     {
-        // TODO: does it have to be only here or in the country model as well
         private ICollection<Aim> aims;
         public City()
         {

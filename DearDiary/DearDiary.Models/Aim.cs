@@ -21,7 +21,6 @@ namespace DearDiary.Models
         [Required]
         public string Name { get; set; }
 
-        // TODO: enum or static class?
         [Required]
         public string Status { get; set; }
 
@@ -29,7 +28,7 @@ namespace DearDiary.Models
 
         [Required]
         public string Photo { get; set; }
-
+        
         public int AimCategoryId { get; set; }
         public virtual AimCategory AimCategory { get; set; }
 
@@ -38,20 +37,18 @@ namespace DearDiary.Models
         public int? CityId { get; set; }
         public virtual City City { get; set; }
 
+        public int? CountryId { get; set; }
+        public virtual Country Country { get; set; }
+
         public virtual ICollection<User> InUsersBucketList
         {
             get { return this.inUsersBucketList; }
             set { this.inUsersBucketList = value; }
         }
-
         public virtual ICollection<User> InUsersDoneList
         {
             get { return this.inUsersDoneList; }
             set { this.inUsersDoneList = value; }
         }
-
-        // TODO: Do I need a country in here?
-        public int? CountryId { get; set; }
-        public virtual Country Country { get; set; }
     }
 }
