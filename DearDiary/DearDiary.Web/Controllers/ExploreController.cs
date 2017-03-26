@@ -37,15 +37,15 @@ namespace DearDiary.Web.Controllers
         }
 
         // GET: Explore
-        public ActionResult Index()
-        {
-            ExploreViewModel model = new ExploreViewModel();
+            public ActionResult Index()
+            {
+                ExploreViewModel model = new ExploreViewModel();
 
-            var categories = this.aimCategoryService.GetAimCategories();
-            model.AimCategories = mapper.Map<IEnumerable<AimCategoryViewModel>>(categories);
+                var categories = this.aimCategoryService.GetAimCategories();
+                model.AimCategories = mapper.Map<IEnumerable<AimCategoryViewModel>>(categories);
 
-            return View(model);            
-        }
+                return View(model);            
+            }
         
         public PartialViewResult ExploreAims(ExploreSubmitViewModel submitModel, int? page)
         {
@@ -55,7 +55,7 @@ namespace DearDiary.Web.Controllers
             var count = this.aimService.GetAimsCount(submitModel.SearchWord, submitModel.ChosenCategoriesIds);
             var resultViewModel = new ExploreResultsViewModel();
             resultViewModel.SubmitModel = submitModel;
-            resultViewModel.Pages = (int)Math.Ceiling((double)count / 5.0);
+            resultViewModel.Pages = (int)Math.Ceiling((double)count / CountOfAims);
 
             resultViewModel.Aims = mapper.Map<IEnumerable<AimViewModel>>(result);
             
