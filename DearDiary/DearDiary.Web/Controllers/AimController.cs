@@ -100,6 +100,8 @@ namespace DearDiary.Web.Controllers
 
             ViewData["country"] = GetCountries();
             ViewData["category"] = GetCategories();
+            //model.Countries = GetCountries();
+            //model.AimCategories = GetCategories();
 
             return this.View(model);
         }
