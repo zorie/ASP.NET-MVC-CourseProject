@@ -21,6 +21,12 @@ namespace DearDiary.Services
             this.data = data;
         }
 
+        public void AddCity(City city)
+        {
+            this.data.Cities.Add(city);
+            this.data.SaveChanges();
+        }
+
         public IEnumerable<City> GetAllCities()
         {
             return this.data.Cities.All.ToList();

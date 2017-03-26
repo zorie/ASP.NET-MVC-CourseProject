@@ -21,8 +21,10 @@ namespace DearDiary.Services
 
             this.data = data;
         }
-        public void AddAimCategory()
-        {            
+        public void AddAimCategory(AimCategory category)
+        {
+            this.data.AimCategories.Add(category);
+            this.data.SaveChanges();
         }
 
         public IEnumerable<AimCategory> GetAimCategories()

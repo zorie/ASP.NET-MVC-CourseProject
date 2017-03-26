@@ -22,7 +22,7 @@ namespace DearDiary.Web.Controllers
 
         public AimController(
             IAimService aimService,
-            ICountryService countrySerice,
+            ICountryService countryService,
             ICityService cityService,
             IAimCategoryService aimCategoryService,
             IMapperAdapter mapper)
@@ -32,7 +32,7 @@ namespace DearDiary.Web.Controllers
                 throw new ArgumentNullException("Aim Service cannot be null");
             }
 
-            if (countrySerice == null)
+            if (countryService == null)
             {
                 throw new ArgumentNullException("Country Service cannot be null");
             }
@@ -54,7 +54,7 @@ namespace DearDiary.Web.Controllers
 
             this.aimService = aimService;
             this.cityService = cityService;
-            this.countryService = countrySerice;
+            this.countryService = countryService;
             this.aimCategoryService = aimCategoryService;
             this.mapper = mapper;
         }

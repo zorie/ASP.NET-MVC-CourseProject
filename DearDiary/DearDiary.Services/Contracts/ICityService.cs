@@ -5,6 +5,7 @@ namespace DearDiary.Services.Contracts
 {
     public interface ICityService
     {
+        void AddCity(City city);
         IEnumerable<City> GetAllCities();
 
         IEnumerable<City> GetAllCitiesByCountry(string countryId);

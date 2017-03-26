@@ -11,6 +11,6 @@ namespace DearDiary.Services.Contracts
     {
         IEnumerable<AimCategory> GetAimCategories();
 
-        void AddAimCategory();
+        void AddAimCategory(AimCategory category);
     }
 }

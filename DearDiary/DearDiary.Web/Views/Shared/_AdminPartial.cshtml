@@ -4,7 +4,8 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Manage<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-                <li>@Html.ActionLink("Add aim", "Index", "Aim")</li>
+                <li>@Html.ActionLink("Add category", "Index", "AddCategory", new { area = "Admin" }, null)</li>
+                <li>@Html.ActionLink("Add city", "Index", "AddCity", new { area = "Admin" }, null)</li>            
             </ul>
         </li>
     </ul>

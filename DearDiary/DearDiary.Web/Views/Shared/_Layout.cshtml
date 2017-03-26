@@ -23,9 +23,9 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="slideTo">@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li class="slideTo">@Html.ActionLink("About", "About", "Home")</li>
-                        <li class="slideTo">@Html.ActionLink("Contact", "Contact", "Home")</li>                        
+                        <li class="slideTo">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                        <li class="slideTo">@Html.ActionLink("About", "About", "Home", new { area = "" }, null)</li>
+                        <li class="slideTo">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)</li>                        
                         <li class="slideTo">@Html.ActionLink("Explore", "Index", "Explore", new { area = "" }, null)</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
