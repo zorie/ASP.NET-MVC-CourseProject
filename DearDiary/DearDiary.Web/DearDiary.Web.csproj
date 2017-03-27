@@ -235,6 +235,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-notify.css" />
+    <Content Include="Content\bootstrap-paper.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\deardiarylogo.png" />
@@ -242,6 +243,9 @@
     <Content Include="Content\dreamlogo.png" />
     <Content Include="Content\styles\alert-bangtidy.css" />
     <Content Include="Content\styles\alert-blackgloss.css" />
+    <Content Include="ErrorPages\401.html" />
+    <Content Include="ErrorPages\404.html" />
+    <Content Include="ErrorPages\500.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

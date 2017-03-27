@@ -85,7 +85,7 @@ namespace DearDiary.Web.Controllers
 
             if (aim == null)
             {
-                return this.View("Error");
+                return this.RedirectToAction("Index");
             }
 
             AimDetailsViewModel model = this.mapper.Map<AimDetailsViewModel>(aim);
