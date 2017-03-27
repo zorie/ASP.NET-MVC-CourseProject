@@ -117,9 +117,39 @@ namespace DearDiary.Web.Controllers
                 return View();
             }
 
-            int countryId = int.Parse(form["Country"].ToString());
-            int cityId = int.Parse(form["city"].ToString());
-            int categoryId = int.Parse(form["category"].ToString());
+            int countryId = 0;
+            int? cityId;
+            try
+            {
+                countryId = int.Parse(form["Country"].ToString());
+            }
+            catch (Exception)
+            {
+                this.TempData.Add("Country", "Choose a valid country");
+                return this.RedirectToAction("Create");
+            }
+
+            try
+            {
+                cityId = int.Parse(form["city"].ToString());
+            }
+            catch (Exception)
+            {
+                cityId = null;
+                this.TempData.Add("City", "Choose a valid city");
+                return this.RedirectToAction("Create");
+            }
+
+            int categoryId = 0;
+            try
+            {
+                categoryId = int.Parse(form["category"].ToString());
+            }
+            catch (Exception)
+            {
+                this.TempData.Add("InvalidCategory", "Choose a valid category");
+                return this.RedirectToAction("Create");
+            }
 
             if (ModelState.IsValid)
             {
@@ -130,11 +160,7 @@ namespace DearDiary.Web.Controllers
                     string path = this.Server.MapPath($"~/Images/{fileName}");
 
                     aimModel.Photo.SaveAs(path);
-                }
-                else
-                {
-                    ViewBag.Message = "You have not specified a file.";
-                }
+                }                
 
                 Aim newAim = this.mapper.Map<Aim>(aimModel);
 
@@ -145,7 +171,8 @@ namespace DearDiary.Web.Controllers
                 newAim.Photo = fileName;
 
                 aimService.AddAim(newAim);
-                
+                this.TempData.Add("Addition", "Your aim was added successfully.");
+
                 return RedirectToRoute(new
                 {
                     controller = "Explore",

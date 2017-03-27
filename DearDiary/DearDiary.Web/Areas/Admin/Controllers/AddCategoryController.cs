@@ -48,9 +48,17 @@ namespace DearDiary.Web.Areas.Admin.Controllers
             AimCategory newCategory = this.mapper.Map<AimCategory>(categoryModel);
             newCategory.Aims = new List<Aim>();
 
-            this.categoryService.AddAimCategory(newCategory);
+            try
+            {
+                this.categoryService.AddAimCategory(newCategory);
+            }
+            catch (Exception)
+            {
+                this.TempData.Add("Unique", "Duplicate element");
+                return this.View();
+            }
 
-            // temp data messages
+            this.TempData.Add("Category", "Successfully added the category");
 
             return this.Redirect($"/explore");            
         }

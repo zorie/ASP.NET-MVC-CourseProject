@@ -234,22 +234,29 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-notify.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\deardiarylogo.png" />
     <Content Include="Content\dreambackground.png" />
+    <Content Include="Content\dreamlogo.png" />
+    <Content Include="Content\styles\alert-bangtidy.css" />
+    <Content Include="Content\styles\alert-blackgloss.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\happiness.jpg" />
     <Content Include="Images\love.jpg" />
+    <Content Include="Scripts\bootstrap-notify.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\AddCategory\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AddCity\Index.cshtml" />
+    <Content Include="fonts\irvP3TB0tsoy_UMHmCQlTw.woff2" />
+    <Content Include="fonts\kfCpWUYjzqqtPFESHGr73_esZW2xOQ-xsNqO47m55DA.woff2" />
     <None Include="Properties\PublishProfiles\DearDiary.pubxml" />
     <None Include="Properties\PublishProfiles\deardiaryy - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\deardiaryy - Web Deploy.pubxml" />

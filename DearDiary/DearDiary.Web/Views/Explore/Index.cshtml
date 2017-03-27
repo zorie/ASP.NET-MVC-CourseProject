@@ -7,7 +7,25 @@
 <h2>Explore the people's aims around the world</h2>
 
 <div class="container main-content">
-    <!-- start sidebar -->
+    @if (TempData["Addition"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["Addition"]
+        </div>
+    }
+    @if (TempData["AddCity"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["AddCity"]
+        </div>
+    }
+    @if (TempData["Category"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["Category"]
+        </div>
+    }
+
     <div class="row">
         @using (Ajax.BeginForm("ExploreAims", null,
                 new AjaxOptions()

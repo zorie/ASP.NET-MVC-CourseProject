@@ -2,6 +2,7 @@
 /*------------------------------  YOUR CUSTOM CSS STYLE  -----------------------------*/
 @import url(http://fonts.googleapis.com/css?family=Neucha);
 
+
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -23,6 +24,34 @@ body {
   position: absolute;
   z-index: -1; 
 }
+
+.dreambanner {
+    display: inline-block;
+    background: url("dreamlogo.png") no-repeat;
+    width: 800px;
+    height: 350px;
+    opacity: 0.5;
+    position: relative;
+    z-index: -1;
+}
+.banner_desc {
+    position: relative;
+    padding-left: 150px;
+}
+
+.button {
+    display: block;
+    width: 250px;
+    height: 80px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 45px;
+}
+
 .navbar-inverse{
     background-color:#289486;
     opacity: 0.9;    
@@ -67,6 +96,40 @@ p{
 	position: absolute;
 	z-index: 1;
 }
+.loginBoxTwo {
+	width: 50vw;
+	height: 65vh;
+	margin-left: 1vw;
+	background-color: #289486;
+	color: white;
+	margin-top: 10vh;
+	border: 2px solid white;
+    border-radius: 20px;
+    overflow: hidden;
+    opacity: 0.9;
+}
+
+.loginBoxTwo .row {
+	height: 45vh;
+}
+
+.loginBoxTwo span,
+.loginBoxTwo h4 {
+	color: white !important;
+}
+.loginBoxTwo input {
+	border-radius: 5px;
+    border: none;
+}
+.loginBoxTwo a {
+	color: white !important;
+	text-decoration: none;
+	text-align: center;
+}
+.loginBoxTwo h4 {
+	text-align: center;
+	font-size: 260%;
+}
 
 .loginBox {
 	width: 50vw;
@@ -80,6 +143,7 @@ p{
     overflow: hidden;
     opacity: 0.9;
 }
+
 .loginBox .row {
 	height: 45vh;
 }

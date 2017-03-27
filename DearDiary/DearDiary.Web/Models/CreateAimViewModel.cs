@@ -24,7 +24,6 @@ namespace DearDiary.Web.Models
         [Display(Name = "Status")]
         public string Status { get; set; }
 
-        [Required]
         [Display(Name = "City")]
         public int CityId { get; set; }
         public IEnumerable<SelectListItem> Cities { get; set; }

@@ -8,6 +8,24 @@
 
 <h2>Create Aim</h2>
 <hr />
+@if (TempData["Country"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Country"]
+    </div>
+}
+@if (TempData["City"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["City"]
+    </div>
+}
+@if (TempData["InvalidCategory"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["InvalidCategory"]
+    </div>
+}
     @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
@@ -35,27 +53,30 @@
                     @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.DropDownList("Status", new SelectList(Enum.GetValues(typeof(Status))),
-                                            "Select Status", new { @class = "form-control" })                        
+                                            "Please select status", new { style = "width:250px", @class = "dropdown1" })                        
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })                  
                     </div>
                 </div>
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.CountryId, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("Country", ViewData["country"] as List<SelectListItem>)
+                        @Html.DropDownList("Country", ViewData["country"] as List<SelectListItem>, "Please select a country", new { style = "width:250px", @class = "dropdown1" })
+                        @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })                    
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.CityId, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("city", new SelectList(string.Empty, "Value", "Text"), "Please select a city", new { style = "width:250px", @class = "dropdown1" })
+                        @Html.DropDownList("city", new SelectList(string.Empty, "Value", "Text"), "", new { style = "width:250px", @class = "dropdown1" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.AimCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("Category", ViewData["category"] as List<SelectListItem>)
+                        @Html.DropDownList("Category", ViewData["category"] as List<SelectListItem>, "Please select a category", new { style = "width:250px", @class = "dropdown1" })
+                        @Html.ValidationMessageFor(model => model.AimCategoryId, "", new { @class = "text-danger" })                    
                     </div>
                 </div>
                 <div class="form-group">
@@ -71,8 +92,10 @@
                         <input type="submit" value="Create" class="btn btn-default" />
                     </div>
                 </div>
-                <div>
-                    @Html.ActionLink("Back to List", "Index", "Aim", new { area = "" }, null)
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.ActionLink("Back to List", "Index", "Aim", new { area = "" }, null)
+                    </div>
                 </div>
             </div>            
         </div>
@@ -84,26 +107,21 @@
     
 <script type="text/javascript">
      $(document).ready(function () {
-         //Dropdownlist Selectedchange event
          $("#Country").change(function () {
              $("#city").empty();
              $.ajax({
                  type: 'POST',
-                 url: '@Url.Action("GetCities")', // we are calling json method
+                 url: '@Url.Action("GetCities")', 
  
                  dataType: 'json',
  
                  data: { id: $("#Country").val() },
  
                  success: function (cities) {
-                     // coties contains the JSON formatted list
-                     // of cities passed from the controller
- 
+                     
                      $.each(cities, function (i, city) {
                      $("#city").append('<option value="' + city.Value + '">' +
                           city.Text + '</option>');
-                     // here we are adding option for States
- 
                      });
                  },
                  error: function (ex) {

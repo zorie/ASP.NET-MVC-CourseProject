@@ -5,7 +5,12 @@
 }
 
 <h2>Add City</h2>
-
+@if (TempData["Unique"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Unique"]
+    </div>
+}
 <div class="container main-content">
     @using (Html.BeginForm("Index", "AddCity", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {

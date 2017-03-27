@@ -65,11 +65,12 @@ namespace DearDiary.Web.Areas.Admin.Controllers
             }
             catch (Exception)
             {
-
-                return this.View("Error");
+                ViewData["country"] = GetCountries();
+                this.TempData.Add("Unique", "Duplicate element");
+                return this.View();
             }
 
-            // temp data messages - unique city error
+            this.TempData.Add("AddCity", "Successfully added the city");
 
             return this.Redirect($"/explore");
         }
