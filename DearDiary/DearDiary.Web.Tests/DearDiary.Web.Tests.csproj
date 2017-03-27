@@ -94,6 +94,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Admin\AddCategoryControllerTests\AddCategoryClass_Should.cs" />
+    <Compile Include="Areas\Admin\AddCategoryControllerTests\IndexPost_Should.cs" />
+    <Compile Include="Areas\Admin\AddCategoryControllerTests\Constructor_Should.cs" />
+    <Compile Include="Areas\Admin\AddCategoryControllerTests\Index_Should.cs" />
+    <Compile Include="Areas\Admin\AddCityControllerTests\AddCityClass_Should.cs" />
+    <Compile Include="Areas\Admin\AddCityControllerTests\Constructor_Should.cs" />
+    <Compile Include="Areas\Admin\AddCityControllerTests\Index_Should.cs" />
     <Compile Include="ControllersTests\AimControllerTests\Constructor_Should.cs" />
     <Compile Include="ControllersTests\AimControllerTests\Create_Should.cs" />
     <Compile Include="ControllersTests\AimControllerTests\Details_Should.cs" />
