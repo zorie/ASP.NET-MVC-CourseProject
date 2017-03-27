@@ -1,6 +1,5 @@
-#Dear Diary Project
-## Public pages
-__________________________
+# Dear Diary Project
+ _________
 ## Home page
 
 * The home page is the starting point of th page.
